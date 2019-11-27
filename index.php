@@ -19,11 +19,11 @@
 
 		<tr height=100% >	
 			<td width="200">
-                    <form action="Verification.php" methode="POST">
+                    <form action="Verification.php" method="POST">
                         <fieldset >
                             <legend>AUTHENTIFICATION</legend>
                             Login:<input id="login" type="text" name="login" />
-                            Mot de passe: <input type="password" id="passe" name="pass"><br />
+                            Mot de passe: <input type="password" id="pass" name="pass"><br />
                             <button id="annuler" name="annuler" type="reset">Annuler</button>
                             <button id="valider" name="valider" type="submit">Valider</button>
                         </fieldset>
