@@ -1,0 +1,29 @@
+body {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+#layout {
+    background-color: black;
+    padding: 5px;
+    width: 500px;
+}
+
+.gauche {
+    text-align: left;
+}
+
+.droite {
+    text-align: right
+}
+
+button {
+    background-color: blue;
+}
+
+.auth {
+    width: 200px;
+}
