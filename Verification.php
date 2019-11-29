@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php 
-            if (((isset($_POST['login']) && $_POST['login']!=='')) && (isset($_POST['pass']) && $_POST['pass']!=='')) {
+            if (!empty($_POST['login']) && !empty($_POST['pass']) ) {
                 $login = $_POST['login'];
                 $passe = $_POST['pass'];
                 echo 
@@ -27,7 +27,8 @@
                 } else {
                     echo 
                         '
-                            <p> <img src="images/warn.png" alt="Warning! No value" width="30" height="30"> Veuillez vérifier que le ou les champs ne sont pas vides </p>
+                            <p align="center"> <img src="images/warn.png" alt="Warning! No value" width="50" height="50"></p>
+                            <p align="center"> Veuillez vérifier que le ou les champs ne sont pas vides </p>
                             
                         ';
                 }
