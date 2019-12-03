@@ -113,7 +113,7 @@
 
                     //Execute the query and return TRUE (if executed) or FALSE (if error)
                     $result = $connect->query($sql);
-                    $last_id = $connect->insert_id;
+                    
                     if ($result)
                     {
                         echo '<SCRIPT> alert("Employé enregistré avec succès ! ");
