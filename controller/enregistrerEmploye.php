@@ -1,4 +1,11 @@
 <?php
+
+    //Include the connexion file
+    include_once("../config/connexion.php");
+
+    //Create the connexion
+    $connect = new mysqli(HOST, USER, PASS, "bd_gestpers");
+
     $vide = false;
 
     if(empty($_POST['nom'])) {
@@ -80,10 +87,6 @@
                         <p align="center"> Veuillez vérifier que tous les champs ne sont pas vides </p>
                     ';
             } else {
-                echo 
-                    '<p> Bravo! Tous les champs sont renseignés </p>
-                    ';
-
                     // Creation de l'entite employé avec les donnees du formulaire
                     $nom = $_POST['nom'];
                     $prenom = $_POST['prenom'];
@@ -103,7 +106,23 @@
                     $matricule = $_POST['matricule'];
 
                     // Creation de ma requete SQL d'insertion des donnees en suivant l'ordre des champs dans la table employe
-                    $sql = "INSERT INTO employe VALUES('" . $matricule . "', '" . $nom . "', '" . $prenom . "', '" . $datenaiss . "', '" . $contacts . "', '" . $email . "', '" . $grade . "', '" . $emploi . "', '" . $fonction . "', '" . $direction . "', '" . $departement . "', '" . $service . "', '" . $dateembauche . "', '" . $login . "', '" . $motdepasse . "', '" . $lieunaiss . "')";
+                    $sql = "INSERT INTO employes VALUES('" . $matricule . "', '" . $nom . "', '" . $prenom . "', '" . $datenaiss . "', '" . $contacts . "', '" . $email . "', '" . $grade . "', '" . $emploi . "', '" . $fonction . "', '" . $direction . "', '" . $departement . "', '" . $service . "', '" . $dateembauche . "', '" . $login . "', '" . $motdepasse . "', '" . $lieunaiss . "')";
+                    
+                    //test Affichage script
+                    // echo '<p> REQUETE: ' . $sql . '</p>';
+
+                    //Execute the query and return TRUE (if executed) or FALSE (if error)
+                    $result = $connect->query($sql);
+                    $last_id = $connect->insert_id;
+                    if ($result)
+                    {
+                        echo '<SCRIPT> alert("Employé enregistré avec succès ! ");
+                              alert("'. $last_id.'");</SCRIPT>';
+                    } else {
+
+                        echo '<SCRIPT> alert("Employé non enregistré! Erreur: '. $connect->error .' ");</SCRIPT>';
+                        
+                    }
             }
         ?>
     </body>

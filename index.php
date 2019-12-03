@@ -18,14 +18,22 @@
 		</tr>
 
 		<tr height=100% >	
-			<td width="200">
+			<td width="280">
                     <form action="Verification.php" method="POST">
                         <fieldset >
                             <legend>AUTHENTIFICATION</legend>
-                            Login:<input id="login" type="text" name="login" />
-                            Mot de passe: <input type="password" id="pass" name="pass"><br />
+                            Login :<br><input id="login" type="text" name="login" /><br><br>
+                            Mot de passe: <br><input type="password" id="pass" name="pass"><br><br>
                             <button id="annuler" name="annuler" type="reset">Annuler</button>
                             <button id="valider" name="valider" type="submit">Valider</button>
+                        </fieldset>
+                    </form>
+
+                    <form action="controller/rechercheEmploye.php" method="POST">
+                        <fieldset >
+                            <legend>RECHERCHE EMPLOYE</legend>
+                             Matricule : <input id="matricule" type="text" name="matricule" /><br><br>
+                            <button id="valider" name="valider" type="submit">Rechercher</button>
                         </fieldset>
                     </form>
 			</td>
