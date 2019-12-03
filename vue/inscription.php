@@ -56,6 +56,7 @@
                                 <table>
                                     <tr>
                                         <td align="left">
+                                            Matricule : <br><br>
                                             Direction : <br><br>
                                             Département : <br><br>
                                             Service : <br><br>
@@ -65,6 +66,7 @@
                                             Date de prise de service :
                                         </td>
                                         <td align="right">
+                                            <input type="matricule" id="matricule" name="matricule"><br><br>
                                             <input type="text" id="direction" name="direction"> <br><br>
                                             <input type="text" id="departement" name="departement"> <br><br>
                                             <input type="text" id="service" name="service"> <br><br>

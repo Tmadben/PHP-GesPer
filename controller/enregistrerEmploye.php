@@ -60,6 +60,10 @@
     if(empty($_POST['motdepasse'])) {
         $vide = true;
     }
+
+    if(empty($_POST['matricule'])) {
+        $vide = true;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +83,22 @@
                 echo 
                     '<p> Bravo! Tous les champs sont renseignés </p>
                     ';
+                    $nom = $_POST['nom'];
+                    $prenom = $_POST['prenom'];
+                    $datenaiss = $_POST['datenaiss'];
+                    $lieunaiss = $_POST['lieunaiss'];
+                    $contacts = $_POST['contacts'];
+                    $email = $_POST['email'];
+                    $direction = $_POST['direction'];
+                    $departement = $_POST['departement'];
+                    $service = $_POST['service'];
+                    $emploi = $_POST['emploi'];
+                    $fonction = $_POST['fonction'];
+                    $grade = $_POST['grade'];
+                    $dateembauche = $_POST['dateembauche'];
+                    $login = $_POST['login'];
+                    $motdepasse = $_POST['motdepasse'];
+                    $matricule = $_POST['matricule'];
             }
         ?>
     </body>
