@@ -83,6 +83,8 @@
                 echo 
                     '<p> Bravo! Tous les champs sont renseignés </p>
                     ';
+
+                    // Creation de l'entite employé avec les donnees du formulaire
                     $nom = $_POST['nom'];
                     $prenom = $_POST['prenom'];
                     $datenaiss = $_POST['datenaiss'];
@@ -99,6 +101,9 @@
                     $login = $_POST['login'];
                     $motdepasse = $_POST['motdepasse'];
                     $matricule = $_POST['matricule'];
+
+                    // Creation de ma requete SQL d'insertion des donnees en suivant l'ordre des champs dans la table employe
+                    $sql = "INSERT INTO employe VALUES('" . $matricule . "', '" . $nom . "', '" . $prenom . "', '" . $datenaiss . "', '" . $contacts . "', '" . $email . "', '" . $grade . "', '" . $emploi . "', '" . $fonction . "', '" . $direction . "', '" . $departement . "', '" . $service . "', '" . $dateembauche . "', '" . $login . "', '" . $motdepasse . "', '" . $lieunaiss . "')";
             }
         ?>
     </body>
