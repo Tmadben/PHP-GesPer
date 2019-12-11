@@ -7,7 +7,8 @@
 <body>
    <table width=100% height=100% border="0">
 		<tr height=15% bgcolor="grey">
-			<th colspan="4" height="100"><h1>Bienvenue sur le portail de Gestion du Personnel</h1></th>
+			<th colspan="4" height="100"><h1>Bienvenue sur le portail de Gestion du Personnel</h1>
+            </th>
 		</tr>
 		
 		<tr bgcolor="#00FF00" height="35" align="justify">
@@ -26,14 +27,6 @@
                             Mot de passe: <br><input type="password" id="pass" name="pass"><br><br>
                             <button id="annuler" name="annuler" type="reset">Annuler</button>
                             <button id="valider" name="valider" type="submit">Valider</button>
-                        </fieldset>
-                    </form>
-
-                    <form action="controller/rechercheEmploye.php" method="POST">
-                        <fieldset >
-                            <legend>RECHERCHE EMPLOYE</legend>
-                             Matricule : <input id="matricule" type="text" name="matricule" /><br><br>
-                            <button id="valider" name="valider" type="submit">Rechercher</button>
                         </fieldset>
                     </form>
 			</td>
@@ -61,7 +54,11 @@
 				<footer>
 				<p align="center"> 
 					copyright (c) 2019 - tous droit reservé.
-					<br />WebMaster: bemous@gmail.com 
+					<br />WebMasters: <br> 
+                    - Mamadou Ben TRAORE
+                    - Paul DJE LOUKOU
+                    - DANHO Marcel
+                    - DJEHIDJE GNININ EMILE 
 				</p>
 				</footer>
 			</td>
@@ -69,3 +66,7 @@
    </table>
 </body>
 <html>
+<?php 
+    $login = 'Utilisateur: ' . $_POST['login'];
+    echo '<SCRIPT>document.getElementById(uCon).hidden = false;</SCRIPT>';
+?>

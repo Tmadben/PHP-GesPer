@@ -40,27 +40,87 @@
                     {
                         // Return the number of Employe who match for the matricule entered
                         //If the number is greater than 0, at least one employe has been found
+                        // It's possible to use $result->num_rows instead of mysqli_num_rows($result) to get the number of rows
+                        
                         $rowNumber = mysqli_num_rows($result);
-                        if ($rowNumber <= 0) {
+                        if ($rowNumber = 0) {
+                            echo '<h2>'. $rowNumber . ' résultat(s) trouvé(s) </h2>';
                             echo '<p> Aucun employé trouvé pour ce matricule : ' . $matricule . '</p>';
                         } else {
                             $row = $result->fetch_assoc();
-                            echo '<h2>'. $rowNumber . ' résultat(s) trouvé(s) </h2>';
+                            //Il est aussi possible d'utiliser ce code pour affecter $ligne = $result ->fetch_object();
+                            //Ainis que ceci pour afficher echo $ligne->matricule;
+
+                            //echo '<h2>'. $rowNumber . ' résultat(s) trouvé(s) </h2>';
                             echo '
-                                <p> MATRICULE: ' .$row["matricule"]. '</p>' .
-                                '<p> NOM: ' .$row["nom"]. '</p>' .
-                                '<p> PRENOM: ' .$row["prenom"]. '</p>' .
-                                '<p> DATE NAISS: ' .$row["datenaiss"]. '</p>' .
-                                '<p> LIEU NAISS: ' .$row["lieunaiss"]. '</p>' .
-                                '<p> DIRECTION: ' .$row["direction"]. '</p>' .
-                                '<p> DEPARTEMENT: ' .$row["departement"]. '</p>' .
-                                '<p> SERVICE: ' .$row["service"]. '</p>' .
-                                '<p> GRADE: ' .$row["grade"]. '</p>' .
-                                '<p> EMPLOI: ' .$row["emploi"]. '</p>' .
-                                '<p> FONCTION: ' .$row["fonction"]. '</p>' .
-                                '<p> DATE EMBAUCHE: ' .$row["dateembauche"]. '</p>' .
-                                '<p> CONTACTS: ' .$row["contacts"]. '</p>' .
-                                '<p> EMAIL: ' .$row["email"]. '</p>' . '';
+                                <form action="../controller/modifierEmploye.php" method="post">
+                                                <table border="1" align="center">        
+                                                        <tr>
+                                                            <th>Informations Personnelles</th>
+                                                            <th>Informations Administratives</th>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <td align="center">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td align="left">
+                                                                            Nom : <br><br>
+                                                                            Prénom(s) : <br><br>
+                                                                            Contacts : <br><br>
+                                                                            email : <br><br>
+                                                                            Lieu de naissance : <br><br>
+                                                                            Date de naissance :
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <input type="text" id="nom" name="nom" value="'. $row["nom"] .'"><br><br>
+                                                                            <input type="text" id="prenom" name="prenom" value="' . $row["prenom"]. '"><br><br>
+                                                                            <input type="text" id="contacts" name="contacts" value="' . $row["contacts"] .'"><br><br>
+                                                                            <input type="text" id="email" name="email" value="' . $row["email"] . '"><br><br>
+                                                                            <input type="text" id="lieunaiss" name="lieunaiss" value="' . $row["lieunaiss"] . '"><br><br>
+                                                                            <input type="date" id="datenaiss" name="datenaiss" date_format="0000-00-00" placeholder="YYYY-MM-DD" value="' . $row["datenaiss"] . '">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td align= "center">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td align="left">
+                                                                            Matricule : <br><br>
+                                                                            Direction : <br><br>
+                                                                            Département : <br><br>
+                                                                            Service : <br><br>
+                                                                            Emploi : <br><br>
+                                                                            Fonction : <br><br>
+                                                                            Grade : <br><br>
+                                                                            Date de prise de service :
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <input type="matricule" id="matricule" name="matricule" value="' . $row["matricule"]. '"><br><br>
+                                                                            <input type="text" id="direction" name="direction" value="' . $row["direction"]. '"> <br><br>
+                                                                            <input type="text" id="departement" name="departement" value="' . $row["departement"]. '"> <br><br>
+                                                                            <input type="text" id="service" name="service" value="' . $row["service"]. '"> <br><br>
+                                                                            <input type="text" id="emploi" name="emploi" value="' . $row["emploi"]. '"> <br><br>
+                                                                            <input type="text" id="fonction" name="fonction" value="' . $row["fonction"]. '"> <br><br>
+                                                                            <input type="text" id="grade" name="grade" value="' . $row["grade"]. '"> <br><br>
+                                                                            <input type="date" id="dateembauche" name="dateembauche" date_format="0000-00-00" placeholder="YYYY-MM-DD" value="' . $row["dateembauche"]. '">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <br><br>                                                                
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" align="center">
+                                                                <br><br>
+                                                                <input type="button" value="Supprimer"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <input type="submit" value="Modifier">
+                                                                <br><br>
+                                                            </td>
+                                                        </tr>  
+                                                </table> 
+                                    </form> ' ;
+
                         }
 
                     } else {

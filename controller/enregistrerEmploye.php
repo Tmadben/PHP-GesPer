@@ -116,8 +116,7 @@
                     
                     if ($result)
                     {
-                        echo '<SCRIPT> alert("Employé enregistré avec succès ! ");
-                              alert("'. $last_id.'");</SCRIPT>';
+                        echo '<SCRIPT> alert("Employé enregistré avec succès ! ") </SCRIPT>';
                     } else {
 
                         echo '<SCRIPT> alert("Employé non enregistré! Erreur: '. $connect->error .' ");</SCRIPT>';
